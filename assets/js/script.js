@@ -351,14 +351,14 @@ const i18n = {
             ]
         },
         projects: {
-            badges: ['Web App','API','Diseño Web'],
-            titles: ['Alquiler de Coches Programación','OnePiece API','Alquier de Coches Lenguaje De Marca'],
+            badges: ['Web App','Corporativa','Institucional'],
+            titles: ['SnapNation','LEADERSAMA · AMA','ADAITS — Centro Formativo'],
             descriptions: [
-                'Trabajo de programación sobre alquileres de coches, centrado en la gestión básica de reservas y catálogo.',
-                'API para consultar informacion del universo One Piece con endpoints dedicados a personajes, tripulaciones y busquedas.',
-                'Proyecto final de Lenguaje de Marcas con foco en HTML y CSS, maquetación limpia y estructura semántica.'
+                'Plataforma web de fotografía desarrollada en LEADERSAMA. Permite compartir y explorar imágenes en una comunidad visual moderna con diseño responsive.',
+                'Web corporativa de consultoría de transformación de procesos empresariales. Comunica el método AMA: resultados medibles en 90 días mediante tecnología e IA.',
+                'Web institucional del centro de formación técnica profesional ADAITS, en activo desde 1967. Oferta formativa en aeronáutica, tecnología y telecomunicaciones.'
             ],
-            codeButton: 'Código'
+            codeButton: 'Ver Web'
         },
         contact: { heading:'¡Trabajemos juntos!', description:'Estoy siempre interesado en nuevos proyectos y oportunidades. No dudes en contactarme.', location:'Sevilla, España' },
         footer: '© 2025 Javier Manzano Oliveros. Todos los derechos reservados.',
@@ -435,14 +435,14 @@ const i18n = {
             ]
         },
         projects: {
-            badges: ['Web App','API','Web Design'],
-            titles: ['Car Rental Programming','OnePiece API','Car Rental Markup Language'],
+            badges: ['Web App','Corporate','Institutional'],
+            titles: ['SnapNation','LEADERSAMA · AMA','ADAITS — Training Centre'],
             descriptions: [
-                'Programming assignment about car rentals, focused on basic reservation and catalog management.',
-                'API to explore the One Piece universe with dedicated endpoints for characters, crews and searches.',
-                'Final Markup Language project focused on HTML and CSS, clean layout and semantic structure.'
+                'Photography web platform developed at LEADERSAMA. Allows users to share and explore images in a modern visual community with responsive design.',
+                'Corporate website for a business process transformation consultancy. Communicates the AMA method: measurable results in 90 days using technology and AI.',
+                'Institutional website for the ADAITS professional technical training centre, active since 1967. Training programs in aeronautics, technology and telecommunications.'
             ],
-            codeButton: 'Code'
+            codeButton: 'Visit Site'
         },
         contact: { heading:'Let us work together!', description:'I am always interested in new projects and opportunities. Feel free to contact me.', location:'Seville, Spain' },
         footer: '© 2025 Javier Manzano Oliveros. All rights reserved.',
