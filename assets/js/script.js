@@ -302,12 +302,12 @@ const i18n = {
         profileLocation: 'Sevilla',
         about: {
             paragraphs: [
-                'Soy estudiante de DAW y me metí en la programación gracias a un amigo que me abrió este mundo. Desde entonces me gusta explorar distintas formas de programar y entender cómo funciona todo por dentro.',
+                'Me metí en la programación gracias a un amigo que me abrió este mundo. Desde entonces me gusta explorar distintas formas de programar y entender cómo funciona todo por dentro.',
                 'Fuera del código, me encanta escuchar música (rap, rock y española), ver anime y jugar videojuegos. También juego al pádel y hago parkour.'
             ],
             panelTitle: 'Perfil resumido',
             points: [
-                '2º de DAW, mejorando cada semana con práctica constante.',
+                'Titulado en Desarrollo de Aplicaciones Web — stack completo del navegador al servidor.',
                 'Me gusta entender arquitectura, lógica y cómo escalan los proyectos.',
                 'Buen encaje en equipo, comunicación directa y ganas de aportar.'
             ],
@@ -390,7 +390,7 @@ const i18n = {
             ],
             panelTitle: 'Quick profile',
             points: [
-                'Second year DAW student, improving every week with constant practice.',
+                'Qualified Web Application Developer — full stack expertise from browser to server.',
                 'I like understanding architecture, logic and how projects scale.',
                 'Strong team fit, direct communication and willingness to contribute.'
             ],

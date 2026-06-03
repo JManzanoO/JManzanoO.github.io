@@ -769,7 +769,11 @@ body[data-theme="light"] .hero-pill i { color: var(--accent-1); }
   background: var(--surface);
   aspect-ratio: 1 / 1;
   position: relative;
+  /* counter-rotate so the image stays upright while the gradient border spins */
+  animation: border-spin-counter 4s linear infinite;
 }
+
+@keyframes border-spin-counter { to { transform: rotate(-360deg); } }
 
 .profile-image {
   width: 100%;
