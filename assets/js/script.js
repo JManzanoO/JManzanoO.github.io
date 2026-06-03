@@ -188,23 +188,25 @@ function initProjectTilt() {
 }
 
 /* ============================================================
-   ABOUT CLIP-PATH REVEAL
+   ABOUT PANELS REVEAL
    ============================================================ */
 function initAboutReveal() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.about-reveal').forEach(el => el.classList.add('revealed'));
-        return;
-    }
-    const els = document.querySelectorAll('.about-reveal');
+    const els = Array.from(document.querySelectorAll('.about-reveal'));
     if (!els.length) return;
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
     const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, i) => {
             if (!entry.isIntersecting) return;
-            entry.target.classList.add('revealed');
+            const idx = els.indexOf(entry.target);
+            setTimeout(() => entry.target.classList.add('revealed'), idx * 100);
             obs.unobserve(entry.target);
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05 });
 
     els.forEach(el => obs.observe(el));
 }
