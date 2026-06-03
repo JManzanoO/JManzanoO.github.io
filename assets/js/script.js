@@ -159,7 +159,7 @@ function initSkillFlip() {
 }
 
 /* ============================================================
-   PROJECT CARD 3D TILT + SHINE
+   PROJECT CARD 3D TILT + SHINE  (rAF loop — truly real-time)
    ============================================================ */
 function initProjectTilt() {
     if (window.matchMedia('(hover: none)').matches) return;
@@ -168,18 +168,33 @@ function initProjectTilt() {
     const MAX = 12;
 
     document.querySelectorAll('.project-card').forEach(card => {
+        let mx = 0.5, my = 0.5;
+        let rafId = null;
+        let active = false;
+
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top)  / rect.height;
-            const rotX =  (0.5 - y) * MAX;
-            const rotY =  (x - 0.5) * MAX;
-            card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(6px)`;
-            card.style.setProperty('--mouse-x', (x * 100) + '%');
-            card.style.setProperty('--mouse-y', (y * 100) + '%');
+            mx = (e.clientX - rect.left) / rect.width;
+            my = (e.clientY - rect.top)  / rect.height;
+        });
+
+        card.addEventListener('mouseenter', () => {
+            active = true;
+            const loop = () => {
+                if (!active) return;
+                const rotX = (0.5 - my) * MAX;
+                const rotY = (mx - 0.5) * MAX;
+                card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(6px)`;
+                card.style.setProperty('--mouse-x', (mx * 100) + '%');
+                card.style.setProperty('--mouse-y', (my * 100) + '%');
+                rafId = requestAnimationFrame(loop);
+            };
+            rafId = requestAnimationFrame(loop);
         });
 
         card.addEventListener('mouseleave', () => {
+            active = false;
+            cancelAnimationFrame(rafId);
             card.style.transform = '';
             card.style.removeProperty('--mouse-x');
             card.style.removeProperty('--mouse-y');
