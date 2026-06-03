@@ -369,14 +369,14 @@ const i18n = {
             badges: ['Web App','Corporativa','Institucional'],
             titles: ['SnapNation','LEADERSAMA · AMA','ADAITS — Centro Formativo'],
             descriptions: [
-                'Plataforma web de fotografía desarrollada en LEADERSAMA. Permite compartir y explorar imágenes en una comunidad visual moderna con diseño responsive.',
+                'Proyecto personal. Plataforma web de fotografía para compartir y explorar imágenes en una comunidad visual moderna con diseño responsive.',
                 'Web corporativa de consultoría de transformación de procesos empresariales. Comunica el método AMA: resultados medibles en 90 días mediante tecnología e IA.',
                 'Web institucional del centro de formación técnica profesional ADAITS, en activo desde 1967. Oferta formativa en aeronáutica, tecnología y telecomunicaciones.'
             ],
             codeButton: 'Ver Web'
         },
         contact: { heading:'¡Trabajemos juntos!', description:'Estoy siempre interesado en nuevos proyectos y oportunidades. No dudes en contactarme.', location:'Sevilla, España' },
-        footer: '© 2025 Javier Manzano Oliveros. Todos los derechos reservados.',
+        footer: '© 2026 Javier Manzano Oliveros. Todos los derechos reservados.',
         form: { name:'Tu nombre', email:'Tu email', subject:'Asunto', message:'Tu mensaje', submit:'Enviar Mensaje', openMail:'Abriendo correo...', empty:'Por favor, completa todos los campos.', invalidEmail:'Por favor, ingresa un email válido.', mailName:'Nombre', mailEmail:'Email' },
         navToggleLabel: 'Abrir menú de navegación',
         navAria: 'Navegación principal',
@@ -453,14 +453,14 @@ const i18n = {
             badges: ['Web App','Corporate','Institutional'],
             titles: ['SnapNation','LEADERSAMA · AMA','ADAITS — Training Centre'],
             descriptions: [
-                'Photography web platform developed at LEADERSAMA. Allows users to share and explore images in a modern visual community with responsive design.',
+                'Personal project. Photography web platform to share and explore images in a modern visual community with responsive design.',
                 'Corporate website for a business process transformation consultancy. Communicates the AMA method: measurable results in 90 days using technology and AI.',
                 'Institutional website for the ADAITS professional technical training centre, active since 1967. Training programs in aeronautics, technology and telecommunications.'
             ],
             codeButton: 'Visit Site'
         },
         contact: { heading:'Let us work together!', description:'I am always interested in new projects and opportunities. Feel free to contact me.', location:'Seville, Spain' },
-        footer: '© 2025 Javier Manzano Oliveros. All rights reserved.',
+        footer: '© 2026 Javier Manzano Oliveros. All rights reserved.',
         form: { name:'Your name', email:'Your email', subject:'Subject', message:'Your message', submit:'Send Message', openMail:'Opening email...', empty:'Please complete all fields.', invalidEmail:'Please enter a valid email.', mailName:'Name', mailEmail:'Email' },
         navToggleLabel: 'Open navigation menu',
         navAria: 'Main navigation',
