@@ -340,14 +340,14 @@ const i18n = {
             descriptions: ['2017-09 - 2019-06 · CESUR, Sevilla.','2019-09 - 2021-06 · CESUR, Sevilla.','2024 - 2026 · ADAITS.','Español nativo, Inglés B2.']
         },
         work: {
-            dates: ['Feb 2026 – Jun 2026','2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09','2021-11 - Actualidad'],
-            titles: ['Desarrollador Web — LEADERSAMA · Sevilla','Monitor de tiempo libre - BOSQUE SUSPENDIDO, Sevilla','Monitor de tiempo libre - Universo Parkour, Sevilla','Carretillero - RHENUS LOGISTICS (EUROFIRMS), Sevilla','Camarero - Asador Montequinto, Sevilla'],
+            dates: ['Feb 2026 – Jun 2026','2021-11 - Actualidad','2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09'],
+            titles: ['Desarrollador Web — LEADERSAMA · Sevilla','Camarero - Asador Montequinto, Sevilla','Monitor de tiempo libre - BOSQUE SUSPENDIDO, Sevilla','Monitor de tiempo libre - Universo Parkour, Sevilla','Carretillero - RHENUS LOGISTICS (EUROFIRMS), Sevilla'],
             descriptions: [
                 'Creación de varias páginas web desde cero. Control de frontend y backend en proyectos reales. Despliegue y puesta en producción de las webs desarrolladas.',
+                'Colocación y recogida de mesas, servicio de menús para 15-30 personas, bebidas y comidas en mesa, apoyo de limpieza en cocina y preparación de menús.',
                 'Montura y recogida de material de trabajo, supervisión durante las actividades, apoyo y orientación a participantes y planificación de contingencias.',
                 'Orientación y apoyo en etapa deportiva, planificación de actividades, alimentación y retroalimentación, supervisión de emergencias, adaptación a nuevas situaciones y participación en proyectos de gran escala.',
-                'Control de maquinaria, carga y descarga de camiones y uso de pistola de picking.',
-                'Colocación y recogida de mesas, servicio de menús para 15-30 personas, bebidas y comidas en mesa, apoyo de limpieza en cocina y preparación de menús.'
+                'Control de maquinaria, carga y descarga de camiones y uso de pistola de picking.'
             ]
         },
         projects: {
@@ -424,14 +424,14 @@ const i18n = {
             descriptions: ['2017-09 - 2019-06 · CESUR, Seville.','2019-09 - 2021-06 · CESUR, Seville.','2024 - 2026 · ADAITS.','Native Spanish, English B2.']
         },
         work: {
-            dates: ['Feb 2026 – Jun 2026','2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09','2021-11 - Present'],
-            titles: ['Web Developer — LEADERSAMA · Seville','Leisure Activity Instructor - BOSQUE SUSPENDIDO, Seville','Leisure Activity Instructor - Universo Parkour, Seville','Forklift Operator - RHENUS LOGISTICS (EUROFIRMS), Seville','Waiter - Asador Montequinto, Seville'],
+            dates: ['Feb 2026 – Jun 2026','2021-11 - Present','2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09'],
+            titles: ['Web Developer — LEADERSAMA · Seville','Waiter - Asador Montequinto, Seville','Leisure Activity Instructor - BOSQUE SUSPENDIDO, Seville','Leisure Activity Instructor - Universo Parkour, Seville','Forklift Operator - RHENUS LOGISTICS (EUROFIRMS), Seville'],
             descriptions: [
                 'Creation of multiple websites from scratch. Frontend and backend in real-world projects. Deployment and production setup of developed websites.',
+                'Table setup and clearing, service for 15-30 person menus, food and drinks service, kitchen cleaning support and menu preparation.',
                 'Work material setup and collection, activity supervision, participant support and contingency planning.',
                 'Sports support and guidance, activity planning, nutrition and feedback, emergency supervision, adaptation support and participation in large-scale projects.',
-                'Machinery control, truck loading/unloading and picking gun usage.',
-                'Table setup and clearing, service for 15-30 person menus, food and drinks service, kitchen cleaning support and menu preparation.'
+                'Machinery control, truck loading/unloading and picking gun usage.'
             ]
         },
         projects: {
