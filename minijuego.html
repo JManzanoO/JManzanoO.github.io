@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easter Egg | Parkour Challenge</title>
+    <link rel="icon" type="image/svg+xml" href="egg-favicon.svg">
+    <style>
+        :root {
+            --bg-1: #090f1f;
+            --bg-2: #0d1730;
+            --panel: rgba(9, 18, 36, 0.85);
+            --line: rgba(78, 182, 255, 0.4);
+            --text: #e6f1ff;
+            --muted: #8fb3d8;
+            --accent: #52f3d6;
+            --accent-2: #4ea3ff;
+            --danger: #ff6b8c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 15% 20%, rgba(78, 163, 255, 0.2), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(82, 243, 214, 0.12), transparent 40%),
+                linear-gradient(160deg, var(--bg-1), var(--bg-2));
+            display: grid;
+            place-items: center;
+            padding: 20px;
+        }
+
+        .wrap {
+            width: min(980px, 100%);
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+        }
+
+        .topbar {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(78, 163, 255, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .title {
+            font-size: clamp(20px, 2.6vw, 28px);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .scoreboard {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(11, 28, 54, 0.85);
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .pill strong {
+            color: var(--text);
+            margin-left: 6px;
+        }
+
+        .game {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, rgba(78, 163, 255, 0.08), rgba(78, 163, 255, 0) 40%),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.02) 0,
+                    rgba(255, 255, 255, 0.02) 2px,
+                    transparent 2px,
+                    transparent 56px
+                );
+        }
+
+        .game::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 74px;
+            background:
+                linear-gradient(180deg, rgba(78, 163, 255, 0.08), rgba(8, 14, 28, 0.9)),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(82, 243, 214, 0.22) 0,
+                    rgba(82, 243, 214, 0.22) 28px,
+                    transparent 28px,
+                    transparent 36px
+                );
+            border-top: 1px solid rgba(82, 243, 214, 0.35);
+            pointer-events: none;
+        }
+
+        .runner {
+            position: absolute;
+            left: 72px;
+            bottom: 74px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            border: 2px solid rgba(82, 243, 214, 0.9);
+            background:
+                linear-gradient(150deg, rgba(82, 243, 214, 0.95), rgba(78, 163, 255, 0.9));
+            box-shadow: 0 10px 22px rgba(82, 243, 214, 0.32);
+            transform: translateY(0);
+            z-index: 4;
+        }
+
+        .runner::before,
+        .runner::after {
+            content: "";
+            position: absolute;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #08263a;
+        }
+
+        .runner::before { left: 11px; }
+        .runner::after { right: 11px; }
+
+        .obstacle {
+            position: absolute;
+            bottom: 74px;
+            border-radius: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(165deg, #ff6b8c, #ff8f55);
+            box-shadow: 0 8px 18px rgba(255, 107, 140, 0.3);
+            z-index: 3;
+        }
+
+        .status {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 16px;
+            z-index: 6;
+            pointer-events: none;
+        }
+
+        .status-card {
+            background: rgba(6, 14, 28, 0.76);
+            border: 1px solid rgba(78, 163, 255, 0.35);
+            border-radius: 14px;
+            padding: 14px 18px;
+            max-width: 580px;
+        }
+
+        .status-card h2 {
+            font-size: clamp(20px, 2.5vw, 28px);
+            margin-bottom: 6px;
+            color: var(--accent);
+        }
+
+        .status-card p {
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .status-card.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 180ms ease;
+        }
+
+        .lose-popup {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 220px;
+            height: 220px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(8, 16, 28, 0.65);
+            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+            z-index: 10;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.88);
+            pointer-events: none;
+            transition: opacity 260ms ease, transform 260ms ease;
+        }
+
+        .lose-popup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lose-popup.is-visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: lose-pop-bounce 420ms ease;
+        }
+
+        @keyframes lose-pop-bounce {
+            0% { transform: translate(-50%, -50%) scale(0.82); }
+            55% { transform: translate(-50%, -50%) scale(1.08); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .controls {
+            padding: 14px 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(78, 163, 255, 0.2);
+        }
+
+        .help {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button, .back {
+            border: 1px solid rgba(78, 163, 255, 0.45);
+            background: rgba(12, 28, 53, 0.85);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+            text-decoration: none;
+        }
+
+        button:hover, .back:hover {
+            transform: translateY(-2px);
+            border-color: rgba(82, 243, 214, 0.75);
+            background: rgba(16, 38, 71, 0.95);
+        }
+
+        .jump-btn {
+            border-color: rgba(82, 243, 214, 0.6);
+            background: rgba(12, 39, 55, 0.88);
+        }
+
+        .danger {
+            border-color: rgba(255, 107, 140, 0.5);
+            background: rgba(50, 15, 28, 0.82);
+        }
+
+        @media (max-width: 720px) {
+            .game {
+                height: 260px;
+            }
+
+            .runner {
+                left: 54px;
+            }
+
+            .help {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <h1 class="title">Parkour Challenge</h1>
+            <div class="scoreboard">
+                <div class="pill">Puntos <strong id="score">0</strong></div>
+                <div class="pill">Récord <strong id="best">0</strong></div>
+                <div class="pill">Velocidad <strong id="speed">1.0x</strong></div>
+            </div>
+        </div>
+
+        <section class="game" id="game" aria-label="Zona de juego">
+            <div class="runner" id="runner" aria-hidden="true"></div>
+            <div class="lose-popup" id="lose-popup" aria-hidden="true">
+                <img src="img/image.png" alt="Easter egg de derrota" />
+            </div>
+            <div class="status">
+                <div class="status-card" id="status-card">
+                    <h2 id="status-title">Easter Egg desbloqueado</h2>
+                    <p id="status-text">Pulsa <strong>Espacio</strong>, <strong>W</strong> o <strong>Arrow Up</strong> para saltar. Evita obstáculos y supera tu récord.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="controls">
+            <p class="help">Tip: en móvil usa el botón <strong>Saltar</strong>. En PC usa <strong>Espacio</strong>.</p>
+            <div class="buttons">
+                <button type="button" class="jump-btn" id="jump-btn">Saltar</button>
+                <button type="button" class="danger" id="restart-btn">Reiniciar</button>
+                <a class="back" href="index.html">Volver al portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const game = document.getElementById("game");
+        const runner = document.getElementById("runner");
+        const scoreEl = document.getElementById("score");
+        const bestEl = document.getElementById("best");
+        const speedEl = document.getElementById("speed");
+        const statusCard = document.getElementById("status-card");
+        const statusTitle = document.getElementById("status-title");
+        const statusText = document.getElementById("status-text");
+        const losePopup = document.getElementById("lose-popup");
+        const jumpBtn = document.getElementById("jump-btn");
+        const restartBtn = document.getElementById("restart-btn");
+
+        const storageKey = "parkour-best-score-v1";
+        let bestScore = Number(localStorage.getItem(storageKey) || 0);
+        bestEl.textContent = String(bestScore);
+
+        const state = {
+            isRunning: false,
+            isGameOver: false,
+            restartTimer: null,
+            score: 0,
+            y: 0,
+            vy: 0,
+            gravity: 0.0019,
+            jumpForce: 0.76,
+            ground: 74,
+            runnerX: 72,
+            runnerW: 44,
+            runnerH: 44,
+            obstacles: [],
+            baseSpeed: 0.33,
+            spawnAt: 900,
+            lastTime: performance.now(),
+            popupTimer: null
+        };
+
+        function showStatus(title, text) {
+            statusTitle.textContent = title;
+            statusText.innerHTML = text;
+            statusCard.classList.remove("hidden");
+        }
+
+        function hideStatus() {
+            statusCard.classList.add("hidden");
+        }
+
+        function showLosePopup() {
+            if (!losePopup) {
+                return;
+            }
+            if (state.popupTimer) {
+                clearTimeout(state.popupTimer);
+            }
+            losePopup.classList.remove("is-visible");
+            void losePopup.offsetWidth;
+            losePopup.classList.add("is-visible");
+            state.popupTimer = setTimeout(() => {
+                losePopup.classList.remove("is-visible");
+            }, 1700);
+        }
+
+        function createObstacle() {
+            const obstacle = document.createElement("div");
+            obstacle.className = "obstacle";
+            const width = 22 + Math.random() * 26;
+            const height = 30 + Math.random() * 52;
+            obstacle.style.width = width + "px";
+            obstacle.style.height = height + "px";
+            obstacle.style.left = game.clientWidth + 30 + "px";
+            game.appendChild(obstacle);
+
+            state.obstacles.push({
+                el: obstacle,
+                x: game.clientWidth + 30,
+                w: width,
+                h: height
+            });
+        }
+
+        function startGame() {
+            if (state.isRunning) {
+                return;
+            }
+            state.isRunning = true;
+            hideStatus();
+        }
+
+        function resetGame(showIntro = true) {
+            state.isRunning = false;
+            state.isGameOver = false;
+            if (state.restartTimer) {
+                clearTimeout(state.restartTimer);
+                state.restartTimer = null;
+            }
+            if (state.popupTimer) {
+                clearTimeout(state.popupTimer);
+                state.popupTimer = null;
+            }
+            if (losePopup) {
+                losePopup.classList.remove("is-visible");
+            }
+            state.score = 0;
+            state.y = 0;
+            state.vy = 0;
+            state.spawnAt = 600;
+            state.lastTime = performance.now();
+            state.obstacles.forEach((o) => o.el.remove());
+            state.obstacles = [];
+            runner.style.transform = "translateY(0)";
+            scoreEl.textContent = "0";
+            speedEl.textContent = "1.0x";
+            if (showIntro) {
+                showStatus(
+                    "Easter Egg desbloqueado",
+                    "Pulsa <strong>Espacio</strong>, <strong>W</strong> o <strong>Arrow Up</strong> para saltar. Evita obstáculos y supera tu récord."
+                );
+            } else {
+                hideStatus();
+            }
+        }
+
+        function jump() {
+            if (state.isGameOver) {
+                return;
+            }
+            if (!state.isRunning) {
+                startGame();
+            }
+            if (state.y <= 1) {
+                state.vy = state.jumpForce;
+            }
+        }
+
+        function endGame() {
+            if (state.isGameOver) {
+                return;
+            }
+            state.isRunning = false;
+            state.isGameOver = true;
+
+            const currentScore = Math.floor(state.score);
+            if (state.score > bestScore) {
+                bestScore = currentScore;
+                localStorage.setItem(storageKey, String(bestScore));
+                bestEl.textContent = String(bestScore);
+                showStatus(
+                    "Nuevo récord",
+                    "Has hecho <strong>" + currentScore + "</strong> puntos. Reiniciando en 0.6s..."
+                );
+            } else {
+                showStatus(
+                    "Te la diste",
+                    "Puntos: <strong>" + currentScore + "</strong>. Reiniciando en 0.6s..."
+                );
+            }
+
+            showLosePopup();
+
+            state.restartTimer = setTimeout(() => {
+                resetGame(false);
+                startGame();
+            }, 600);
+        }
+
+        function checkCollisions() {
+            const runnerY = state.ground + state.y;
+            const runnerLeft = state.runnerX;
+            const runnerRight = state.runnerX + state.runnerW;
+            const runnerBottom = runnerY;
+            const runnerTop = runnerY + state.runnerH;
+
+            for (const obs of state.obstacles) {
+                const obsLeft = obs.x;
+                const obsRight = obs.x + obs.w;
+                const obsBottom = state.ground;
+                const obsTop = state.ground + obs.h;
+
+                const overlapX = runnerRight > obsLeft && runnerLeft < obsRight;
+                const overlapY = runnerTop > obsBottom && runnerBottom < obsTop;
+                if (overlapX && overlapY) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function frame(now) {
+            const dt = Math.min(now - state.lastTime, 34);
+            state.lastTime = now;
+
+            if (state.isRunning) {
+                state.score += dt * 0.023;
+                scoreEl.textContent = String(Math.floor(state.score));
+
+                const speedFactor = 1 + state.score / 340;
+                const speed = state.baseSpeed * speedFactor * dt;
+                speedEl.textContent = speedFactor.toFixed(1) + "x";
+
+                state.vy -= state.gravity * dt;
+                state.y += state.vy * dt;
+                if (state.y < 0) {
+                    state.y = 0;
+                    state.vy = 0;
+                }
+                runner.style.transform = "translateY(" + (-state.y) + "px)";
+
+                state.spawnAt -= dt;
+                if (state.spawnAt <= 0) {
+                    createObstacle();
+                    state.spawnAt = 780 + Math.random() * 650 - Math.min(220, state.score * 0.12);
+                }
+
+                state.obstacles = state.obstacles.filter((obs) => {
+                    obs.x -= speed;
+                    obs.el.style.left = obs.x + "px";
+                    if (obs.x + obs.w < -30) {
+                        obs.el.remove();
+                        return false;
+                    }
+                    return true;
+                });
+
+                if (checkCollisions()) {
+                    endGame();
+                }
+            }
+
+            requestAnimationFrame(frame);
+        }
+
+        function onJumpInput(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            jump();
+        }
+
+        window.addEventListener("keydown", (event) => {
+            if (event.code === "Space" || event.code === "ArrowUp" || event.code === "KeyW") {
+                onJumpInput(event);
+            }
+            if (event.code === "Enter" && state.isGameOver) {
+                resetGame();
+                startGame();
+            }
+        });
+
+        jumpBtn.addEventListener("click", onJumpInput);
+        jumpBtn.addEventListener("touchstart", onJumpInput, { passive: false });
+
+        restartBtn.addEventListener("click", () => {
+            resetGame();
+        });
+
+        resetGame();
+        requestAnimationFrame(frame);
+    </script>
+</body>
+</html>
