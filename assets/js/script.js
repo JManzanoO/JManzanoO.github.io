@@ -340,9 +340,10 @@ const i18n = {
             descriptions: ['2017-09 - 2019-06 · CESUR, Sevilla.','2019-09 - 2021-06 · CESUR, Sevilla.','2024 - 2026 · ADAITS.','Español nativo, Inglés B2.']
         },
         work: {
-            dates: ['2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09','2021-11 - Actualidad'],
-            titles: ['Monitor de tiempo libre - BOSQUE SUSPENDIDO, Sevilla','Monitor de tiempo libre - Universo Parkour, Sevilla','Carretillero - RHENUS LOGISTICS (EUROFIRMS), Sevilla','Camarero - Asador Montequinto, Sevilla'],
+            dates: ['Feb 2026 – Jun 2026','2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09','2021-11 - Actualidad'],
+            titles: ['Desarrollador Web — LEADERSAMA · Sevilla','Monitor de tiempo libre - BOSQUE SUSPENDIDO, Sevilla','Monitor de tiempo libre - Universo Parkour, Sevilla','Carretillero - RHENUS LOGISTICS (EUROFIRMS), Sevilla','Camarero - Asador Montequinto, Sevilla'],
             descriptions: [
+                'Creación de varias páginas web desde cero. Control de frontend y backend en proyectos reales. Despliegue y puesta en producción de las webs desarrolladas.',
                 'Montura y recogida de material de trabajo, supervisión durante las actividades, apoyo y orientación a participantes y planificación de contingencias.',
                 'Orientación y apoyo en etapa deportiva, planificación de actividades, alimentación y retroalimentación, supervisión de emergencias, adaptación a nuevas situaciones y participación en proyectos de gran escala.',
                 'Control de maquinaria, carga y descarga de camiones y uso de pistola de picking.',
@@ -423,9 +424,10 @@ const i18n = {
             descriptions: ['2017-09 - 2019-06 · CESUR, Seville.','2019-09 - 2021-06 · CESUR, Seville.','2024 - 2026 · ADAITS.','Native Spanish, English B2.']
         },
         work: {
-            dates: ['2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09','2021-11 - Present'],
-            titles: ['Leisure Activity Instructor - BOSQUE SUSPENDIDO, Seville','Leisure Activity Instructor - Universo Parkour, Seville','Forklift Operator - RHENUS LOGISTICS (EUROFIRMS), Seville','Waiter - Asador Montequinto, Seville'],
+            dates: ['Feb 2026 – Jun 2026','2023-02 - 2023-05 / 2018-09 - 2019-05','2020-08 - 2023-01','2023-04 - 2024-09','2021-11 - Present'],
+            titles: ['Web Developer — LEADERSAMA · Seville','Leisure Activity Instructor - BOSQUE SUSPENDIDO, Seville','Leisure Activity Instructor - Universo Parkour, Seville','Forklift Operator - RHENUS LOGISTICS (EUROFIRMS), Seville','Waiter - Asador Montequinto, Seville'],
             descriptions: [
+                'Creation of multiple websites from scratch. Frontend and backend in real-world projects. Deployment and production setup of developed websites.',
                 'Work material setup and collection, activity supervision, participant support and contingency planning.',
                 'Sports support and guidance, activity planning, nutrition and feedback, emergency supervision, adaptation support and participation in large-scale projects.',
                 'Machinery control, truck loading/unloading and picking gun usage.',

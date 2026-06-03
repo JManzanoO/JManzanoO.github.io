@@ -1284,6 +1284,50 @@ body[data-theme="light"] .about-focus span {
   letter-spacing: 0.02em;
 }
 
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.timeline-card-header .timeline-date { margin-bottom: 0; }
+
+.badge-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #06101b;
+  background: linear-gradient(135deg, var(--accent-2), #b8fff0);
+  text-transform: uppercase;
+}
+
+.badge-active::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #06101b;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-active::before { animation: none; }
+}
+
 .timeline-card h3 {
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 600;
