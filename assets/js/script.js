@@ -366,10 +366,10 @@ const i18n = {
             ]
         },
         projects: {
-            badges: ['Web App','Corporativa','Institucional'],
-            titles: ['SnapNation','LEADERSAMA · AMA','ADAITS — Centro Formativo'],
+            badges: ['E-commerce','Corporativa','Institucional'],
+            titles: ['Bárbara la Bárbara','LEADERSAMA · AMA','ADAITS — Centro Formativo'],
             descriptions: [
-                'Proyecto personal. Plataforma web de fotografía para compartir y explorar imágenes en una comunidad visual moderna con diseño responsive.',
+                'Tienda online y panel de administración de una editorial de cómics: catálogo, carrito, pago con tarjeta y gestión completa del contenido. Frontend en Next.js con API REST propia.',
                 'Web corporativa de consultoría de transformación de procesos empresariales. Comunica el método AMA: resultados medibles en 90 días mediante tecnología e IA.',
                 'Web institucional del centro de formación técnica profesional ADAITS, en activo desde 1967. Oferta formativa en aeronáutica, tecnología y telecomunicaciones.'
             ],
@@ -450,10 +450,10 @@ const i18n = {
             ]
         },
         projects: {
-            badges: ['Web App','Corporate','Institutional'],
-            titles: ['SnapNation','LEADERSAMA · AMA','ADAITS — Training Centre'],
+            badges: ['E-commerce','Corporate','Institutional'],
+            titles: ['Bárbara la Bárbara','LEADERSAMA · AMA','ADAITS — Training Centre'],
             descriptions: [
-                'Personal project. Photography web platform to share and explore images in a modern visual community with responsive design.',
+                'Online store and admin panel for a comics publisher: catalogue, cart, card payments and full content management. Next.js frontend with its own REST API.',
                 'Corporate website for a business process transformation consultancy. Communicates the AMA method: measurable results in 90 days using technology and AI.',
                 'Institutional website for the ADAITS professional technical training centre, active since 1967. Training programs in aeronautics, technology and telecommunications.'
             ],
